@@ -1,16 +1,56 @@
-import { Router } from "express";
-import {homeController, signupController,updateUserController,getEditForm,  contactPageController,contactController,deleteController,serviceController, signupuserController, editController,getalluser,updateController} from "../controller/homeController.js";
-const router= Router()
-router.get("/homepage", homeController)
-router.get("/signup", signupController)
-router.get("/contact", contactPageController);  
-router.post("/contact", contactController);    
-router.post("/signupUser", signupuserController)
-router.get("/list", getalluser)
-router.get("/services", serviceController)
-router.get("/edit/:id", editController)
-router.post("/update/:id", updateController) 
-router.post("/delete/:id", deleteController)
-router.post("/edit/:id", updateUserController)
-router.get("/edit/:id", getEditForm);   
-export const userRouter=router
+// ✅ user.router.js
+import express from "express";
+import {
+  homeController,
+  signupController,
+  updateController,
+  getalluser,
+  contactPageController,
+  contactController,
+  deleteController,
+  serviceController,
+  signupuserController,
+  editController,
+  updateUserController
+
+} from "../controller/homeController.js";
+
+import {
+  getLogin,
+  postLogin,
+  logoutUser
+} from "../Controller/authController.js";
+
+const userRouter = express.Router();
+
+// Public pages
+userRouter.get("/homepage", homeController);
+userRouter.get("/services", serviceController);
+userRouter.get("/contact", contactPageController);
+
+// Auth
+userRouter.get("/login", getLogin);
+userRouter.post("/login", postLogin);
+userRouter.get("/logout", logoutUser);
+
+// Post data
+userRouter.get("/signup", signupController);
+userRouter.post("/signup", signupuserController);
+userRouter.get("/list", getalluser);
+userRouter.get("/edit/:id", editController);
+userRouter.post("/update/:id", updateController);
+userRouter.get("/delete/:id", deleteController);
+userRouter.post("/signupUser", signupuserController);
+userRouter.post("/delete/:id", deleteController);
+// Show the edit form (GET)
+
+// Handle the edit form submission (POST)
+userRouter.post("/edit/:id", updateUserController);
+
+
+
+
+// Contact form
+userRouter.post("/contact", contactController);
+
+export { userRouter };

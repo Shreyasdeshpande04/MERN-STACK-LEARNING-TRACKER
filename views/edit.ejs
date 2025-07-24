@@ -98,23 +98,19 @@
 </head>
 <body>
     <%- include("header") %>
-  <h2 style="text-align:center;">Edit Placed Student</h2>
+  <h2 style="text-align:center;">Edit Posts</h2>
   <div class="signup-box">
 <form method="POST" action="/edit/<%= user._id %>"><div class="form-group">
-    <label>Name</label><input type="text" name="name" value="<%= user.name %>" required /></div>
+    <label>Course</label><input type="text" name="course" value="<%= user.course %>" required /></div>
   <div class="form-group">
-    <label>Email</label><input type="email" name="email" value="<%= user.email %>" required /></div>
-    <div class="form-group"><label>Degree</label>
-    <input type="text" name="degree" value="<%= user.degree %>" required /></div>
+    <label>Topic</label><input type="text" name="topic" value="<%= user.topic %>" required /></div>
+    <div class="form-group"><label>Description</label>
+    <input type="text" name="description" value="<%= user.description %>" required /></div>
     <div class="form-group">
-    <label>Domain</label><input type="text" name="domain" value="<%= user.domain %>" required />
-  </div><div class="form-group"><label>Company</label>
-    <input type="text" name="company" value="<%= user.company %>" required /></div>
-    <div class="form-group"><label>Role</label>
-    <input type="text" name="role" value="<%= user.role %>" required /></div>
-  <div class="form-group"><label>Package</label>
-    <input type="number" name="packagee" value="<%= user.packagee %>" required /></div>
+    <label>Link</label><input type="text" name="llink" value="<%= user.llink %>" required />
+    <label>Link</label><input type="text" name="glink" value="<%= user.glink %>" required />
   <input type="submit" value="Update" class="submit-btn" /></form></div>
+    </div>
   <%- include('footer') %>
 </body>
 </html>

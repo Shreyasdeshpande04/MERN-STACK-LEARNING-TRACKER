@@ -1,8 +1,9 @@
+<!-- views/login.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Contact</title>
   <meta charset="UTF-8" />
+  <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -86,26 +87,43 @@
     .submit-btn:hover {
       background-color: #0056b3;
     }
+
+    .alert {
+      color: red;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
   </style>
 </head>
-<body style="background-color: #FFF2EB"">
+<body style="background-color: #FFF2EB;">
   <div class="wrapper">
-   <%- include('header', { loggedIn: loggedIn }) %>
+    <%- include('header', { loggedIn: loggedIn }) %>
 
     <main>
       <div class="page-container">
-        <div class="welcome-text">WELCOME TO CONTACT PAGE</div><div class="signup-box">
-          <form method="POST" action="/contact"><div class="form-group">
-              <label for="name">Name</label><input type="text" name="name" id="name" required />
-            </div><div class="form-group">
-              <label for="email">Email</label><input type="email" name="email" id="email" required />
-            </div><div class="form-group"><label for="mobile">Mobile Number</label>
-              <input type="number" name="mobile" id="mobile" required /></div>
-            <div class="form-group"><label for="comment">Comment</label>
-        <input type="text" name="comment" id="comment" required /></div>
-            <div class="form-group"><input type="submit" value="Submit" class="submit-btn" />
-            </div></form></div></div>
+        <div class="welcome-text">WELCOME TO LOGIN PAGE</div>
+        <div class="signup-box">
+          <% if (typeof error !== "undefined") { %>
+            <div class="alert"><%= error %></div>
+          <% } %>
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" required />
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Login" class="submit-btn" />
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
+
     <%- include('footer') %>
   </div>
 </body>

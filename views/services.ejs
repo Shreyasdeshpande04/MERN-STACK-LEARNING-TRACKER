@@ -3,83 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Institute Courses</title>
-
+  <title>Services - MERN Stack</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .course-title {
-      text-align: center;
-      margin: 40px 0 20px;
-      font-size: 36px;
-      font-weight: bold;
-    }
+
+
     .card {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+ 
+      text-align: center;
+      padding: 35px 25px;
+      color: white;
+      height: 100%;
+      min-height: 360px;
+    }
+
+
+    /* Unique card colors */
+    .mongo   { background-color: #4db33d; }     /* Green */
+    .express { background-color: #9b59b6; }     /* Purple */
+    .react   { background-color: #0077b6; }     /* Blue */
+    .node    { background-color: #ec8272; }     /* Orange */
+
+    .card img {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+
+    .card h4 {
+      font-size: 22px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 20px;
+      line-height: 1.6;
+        font-weight: normal; /* added to override <b> */
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        margin-bottom: 20px;
+        min-height: auto;
+      }
+    }
+
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    table {
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .table thead {
+      background-color: #007bff;
       color: white;
     }
-    .card:hover {
-      transform: scale(1.03);
+    .table-hover tbody tr:hover {
+      background-color: #f1f1f1;
     }
 
 
-    .card-1 { background-color: #007bff; } 
-    .card-2 { background-color: #28a745; } 
-    .card-3 { background-color: #ffc107; color: #212529; } 
-    .card-4 { background-color: #dc3545; } 
-    .card-5 { background-color: #6f42c1; } 
-    .card-6 { background-color: #17a2b8; } 
+    body {
+      background-color: #FFF2EB;
+      font-family: 'times new roman';
+    
+    }
+    h2 {
+      margin-top: 40px;
+      color: #007bff;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 6px;
+    }
+    .section-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    table td, table th {
+      vertical-align: middle;
+    }
+    .light-purple {
+  background-color:  #d49aea;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+.white-heading {
+  color: rgb(91, 20, 20) !important;
+   text-transform: uppercase;
+}
+
+
+
+    .light-green{
+  background-color: #72cf63;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+    .light-blue{
+  background-color:  #93c2db;;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+    .light-orange{
+  background-color:  #ec8272;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
   </style>
 </head>
-<body>
-   <%- include('header') %><br><br><br>
-<center><H1>WELCOME TO SERVICES PAGE</H1></center>
-  <div class="container"><div class="course-title">Our Popular Courses</div>
-    <div class="row g-4"><div class="col-md-4"><div class="card card-1 h-100"><div class="card-body">
-            <h5 class="card-title">MERN Stack</h5>
-            <p class="card-text">Learn full-stack development with MongoDB, Express, React, and Node.js to build modern web apps.</p>
-          </div></div></div>
-      <div class="col-md-4"><div class="card card-2 h-100"><div class="card-body">
-            <h5 class="card-title">Python Programming</h5>
-            <p class="card-text">Master Python for web development, automation, scripting, data science, and more.</p>
-          </div></div></div>
-      <div class="col-md-4"><div class="card card-3 h-100"><div class="card-body">
-            <h5 class="card-title">Java Development</h5>
-            <p class="card-text">Build scalable applications using Java, Spring Boot, and object-oriented principles.</p>
-          </div></div></div>
-      <div class="col-md-4"><div class="card card-4 h-100"> <div class="card-body">
-            <h5 class="card-title">Software Testing</h5>
-            <p class="card-text">Get hands-on with manual and automation testing tools like Selenium and JUnit.</p>
-          </div>
+<body style="background-color: #FFF2EB;">
+
+   <%- include('header', { loggedIn: loggedIn }) %>
+    <h1>WELCOME TO MERN PAGE</h1>
+  <!-- Cards Section -->
+  <div class="container my-5">
+    <div class="row g-4 justify-content-center">
+
+      <!-- MongoDB -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card mongo">
+          <img src="https://img.icons8.com/color/96/mongodb.png" alt="MongoDB Logo">
+          <h4>MongoDB</h4>
+          <p><b>
+            MongoDB is a NoSQL document database that allows you to store data in flexible, JSON-like structures.
+            It's schema-less, highly scalable, and ideal for real-time applications. Widely used in modern full-stack projects.
+         </b> </p>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card card-5 h-100">
-          <div class="card-body">
-            <h5 class="card-title">Data Science</h5>
-            <p class="card-text">Analyze and visualize data, and build predictive models using Python, ML, and AI techniques.</p>
-          </div>
+      <!-- ExpressJS -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card express">
+          <img src="data:image/png;base64,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" alt="ExpressJS Logo">
+          <h4>ExpressJS</h4>
+          <p><b>
+            Express is a minimal and flexible Node.js web application framework that provides robust tools for building APIs.
+            It simplifies backend development and allows middleware and routing with clean architecture.
+          </b></p>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card card-6 h-100">
-          <div class="card-body">
-            <h5 class="card-title">Data Analysis</h5>
-            <p class="card-text">Learn tools like Excel, SQL, and Power BI to draw insights and make data-driven decisions.</p>
-          </div>
+      <!-- ReactJS -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card react">
+          <img src="https://img.icons8.com/plasticine/100/react.png" alt="ReactJS Logo">
+          <h4>ReactJS</h4>
+          <p><b>
+            React is a JavaScript library developed by Facebook for building dynamic user interfaces.
+            It allows developers to create reusable components and manage complex UIs efficiently with a virtual DOM.
+        </b>  </p>
+        </div>
+      </div>
+
+      <!-- NodeJS -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card node">
+          <img src="https://img.icons8.com/color/96/nodejs.png" alt="NodeJS Logo">
+          <h4>NodeJS</h4>
+          <p><b>
+            Node.js is a runtime environment that lets you execute JavaScript code server-side.
+            Built on Chrome’s V8 engine, it supports asynchronous I/O and event-driven architecture, ideal for scalable applications.
+         </b> </p>
         </div>
       </div>
 
     </div>
   </div>
 
-  <br><br><br>
+
+<div class="container mt-5 light-green">
+  <h1 class="text-primary white-heading">🚀 MERN Stack Developer 4-Month Roadmap</h1>
+<br><br>
+  <table class="table table-bordered table-hover table-striped ">
+   <thead class="table-primary">
+      <tr>
+        <th>Month</th>
+        <th>Focus</th>
+        <th>Topics & Tools</th>
+        <th>Projects</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Month 1</strong></td>
+        <td>Frontend Basics</td>
+        <td>
+          ✅ HTML5, CSS3, Flexbox, Grid<br>
+          ✅ JavaScript (ES6), DOM, Events<br>
+          ✅ Forms, Validation, Responsive Design
+        </td>
+        <td>
+          📌 Portfolio Website<br>
+          📌 Calculator<br>
+          📌 To-Do List
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Month 2</strong></td>
+        <td>Node.js + Express + Git</td>
+        <td>
+          ✅ Node.js, npm, file system<br>
+          ✅ Express.js basics, middleware<br>
+          ✅ Git, GitHub, REST APIs
+        </td>
+        <td>
+          📌 Student Record CRUD API<br>
+          📌 Login Form with Backend<br>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Month 3</strong></td>
+        <td>MongoDB + Auth</td>
+        <td>
+          ✅ MongoDB, Mongoose<br>
+          ✅ Database CRUD Operations<br>
+          ✅ Login/Signup with Hashing<br>
+          ✅ JWT or Session Auth
+        </td>
+        <td>
+          📌 Blog Backend<br>
+          📌 Contact Manager App
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Month 4</strong></td>
+        <td>React + Final MERN Integration</td>
+        <td>
+          ✅ React.js, Components, Props, State<br>
+          ✅ useEffect, Routing, Axios<br>
+          ✅ Connect React to Express API
+        </td>
+        <td>
+          📌 MERN Project: LinkedIn Post Logger<br>
+          📌 Task Manager or E-commerce UI
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+<div class="container my-5">
+
+
+<div class="section-box light-purple">
+    <h1 class="text-primary white-heading">🔹 Key Responsibilities</h1>
+  <center><h2 class="white-heading"></h2><br></center>
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>Level</th>
+        <th>Responsibilities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Fresher</strong></td>
+        <td>
+          ✅ Learn MERN fundamentals (HTML, CSS, JS, Node, React, MongoDB)<br>
+          ✅ Build basic CRUD applications<br>
+          ✅ Understand REST APIs and basic routing in Express<br>
+          ✅ Learn Git, GitHub, and project structure<br>
+          ✅ Create simple responsive UI with React
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Intermediate</strong></td>
+        <td>
+          ✅ Develop full-stack applications with authentication<br>
+          ✅ Handle MongoDB CRUD using Mongoose<br>
+          ✅ Integrate frontend and backend APIs<br>
+          ✅ Use version control & manage branches<br>
+          ✅ Optimize performance and responsiveness
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Experienced</strong></td>
+        <td>
+          ✅ Design scalable architectures and microservices<br>
+          ✅ Implement advanced security (JWT, OAuth, roles)<br>
+          ✅ Deploy apps to cloud (AWS, Heroku, Vercel)<br>
+          ✅ Lead teams and collaborate cross-functionally<br>
+          ✅ Debug, test, and performance-tune production apps
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="section-box light-blue">
+      <h1 class="text-primary white-heading">💡 Advantages of the MERN Stack</h1>
+<br><br>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>Level</th>
+        <th>Advantages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Fresher</strong></td>
+        <td>
+          ✅ Learn full-stack with a single language: JavaScript<br>
+          ✅ Easy to build complete apps using one tech stack<br>
+          ✅ Free, open-source tools with active communities<br>
+          ✅ Simple UI development using React components
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Intermediate</strong></td>
+        <td>
+          ✅ Faster development with reusable components & APIs<br>
+          ✅ Great integration between frontend and backend<br>
+          ✅ Scalable for growing app features<br>
+          ✅ Strong demand in startups and mid-sized companies
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Experienced</strong></td>
+        <td>
+          ✅ Advanced optimization for performance and scalability<br>
+          ✅ Suitable for microservices and enterprise apps<br>
+          ✅ Full control over architecture and deployment<br>
+          ✅ High-paying roles, leadership, and freelance potential
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+  <div class="section-box light-orange">
+        <h1 class="text-primary white-heading">💰 Salary Info</h1>
+
+ <br><br>
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="table-primary">
+        <tr>
+          <th>Experience Level</th>
+          <th>Average Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fresher (0–1 yr)</td>
+          <td>₹3 – ₹6 LPA</td>
+        </tr>
+        <tr>
+          <td>1–3 Years</td>
+          <td>₹6 – ₹12 LPA</td>
+        </tr>
+        <tr>
+          <td>3–6 Years</td>
+          <td>₹10 – ₹20 LPA</td>
+        </tr>
+        <tr>
+          <td>6+ Years</td>
+          <td>₹20 LPA and above</td>
+        </tr>
+      </tbody>
+    </table>
+
+ 
+    
+      </tbody>
+    </table>
+  </div>
+
+  
+
+</div>
+
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <%- include('footer') %><br><br><br>
+  <%- include('footer') %>
 </body>
 </html>

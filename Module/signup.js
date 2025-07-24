@@ -1,13 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
 const signupSchema = new Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  degree: { type: String, required: true },
-  domain: { type: String, required: true },
-  company: { type: String, required: true },
-  role: { type: String, required: true },
-  packagee: { type: Number, required: true },
+  course : { type: String, required: true },
+  topic: { type: String, required: true },
+  description: { type: String, required: true },
+  llink: { type: String, required: true },
+    glink: { type: String, required: true }
 });
 
 export const User =mongoose.model("userReg", signupSchema)

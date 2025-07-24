@@ -3,97 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Footer</title>
+  <title>Professional Footer</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfdfd;
     }
+.footer {
+  background-color: #ffffff;
+  color: black;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 
-    .footer {
-      background-color: #222;
-      color: #f1f1f1;
-      padding: 30px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-    }
+  /* Box shadow */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+  /* Text shadow */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
 
     .footer-col {
       flex: 1;
+      min-width: 220px;
       max-width: 300px;
-      min-width: 250px;
     }
 
-
-    .footer-col.quick {
-      margin-left: 150px; 
-    }
-    .footer-col.about {
-      margin-left: 50px; 
-    }
     .footer h3 {
+      font-size: 17px; /* Reduced from 20px */
       margin-bottom: 10px;
-      font-size: 18px;
-      color: #f9d342;
+      border-bottom: 2px solid #ff7373;
+      display: inline-block;
+      padding-bottom: 4px;
     }
 
     .footer p,
     .footer a {
-      font-size: 14px;
-      color: #ccc;
+      font-size: 16px; /* Reduced from 15px */
+      color: black;
       text-decoration: none;
-      line-height: 1.8;
+      line-height: 1.5;
+      transition: all 0.3s ease;
     }
 
     .footer a:hover {
-      color: #fff;
+      color: #d62828;
       text-decoration: underline;
+    }
+
+    .footer .icon-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .footer-bottom {
       text-align: center;
-      padding: 10px;
-      background-color: #111;
-      color: #aaa;
-      font-size: 13px;
+      padding: 8px; /* Reduced from 12px */
+      background-color: #333;
+      color: white;
+      font-size: 12px; /* Reduced from 13px */
     }
 
     @media (max-width: 768px) {
       .footer {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding: 20px;
       }
+
       .footer-col {
-        max-width: 100%;
-        margin-left: 0 !important;
+        margin-bottom: 20px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Footer Section -->
   <div class="footer">
-    <div class="footer-col about">
-      <h3>About Us</h3>
+    <!-- About Section -->
+    <div class="footer-col">
+      <h3>About</h3>
       <p>
-        Fortune Cloud Technologies – India’s Most Trusted ONLINE & OFFLINE IT Training & Placement Institute. We offer job-ready courses in software and programming, backed by our unique ‘Train to Hire’ model to prepare students for real-world challenges.
+        I am Shreyas Deshpande. I have recently completed my BTech CSE. I’m currently learning the MERN stack at Fortune Cloud Technologies, Pune under Mr. Abhay Gawali Sir.
+        This website showcases my learning journey via LinkedIn posts.
       </p>
     </div>
-    <div class="footer-col quick">
-      <h3>Quick Links</h3>
-      <p><a href="/report">Home</a></p>
-      <p><a href="/service">Services</a></p>
-      <p><a href="/contact">Contact</a></p>
-    </div>
+
+    <!-- Quick Links Section -->
     <div class="footer-col">
-      <h3>Follow Us</h3>
-      <p>WhatsApp | Facebook | Instagram</p>
-      <p>YouTube | LinkedIn | Twitter</p>
+      <h3>Quick Links</h3>
+      <p class="icon-link">🏠 <a href="/homepage">Home</a></p>
+      <p class="icon-link">🛠 <a href="/services">MERN</a></p>
+      <p class="icon-link">📞 <a href="/contact">Contact</a></p>
+    </div>
+
+    <!-- Follow Section -->
+    <div class="footer-col">
+      <h3>Follow Me</h3>
+      <p class="icon-link">📱 <a href="https://wa.me/9322487883" target="_blank">WhatsApp</a></p>
+      <p class="icon-link">💼 <a href="https://www.linkedin.com/in/shreyas-s-deshpande4" target="_blank">LinkedIn</a></p>
+      <p class="icon-link">💻 <a href="https://github.com/Shreyasdeshpande04" target="_blank">GitHub</a></p>
     </div>
   </div>
+
+
+
 </body>
 </html>
