@@ -5,56 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HomePage</title>
 
-  <!-- Bootstrap + Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
   <style>
     body {
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
+      background-color: #FFF2EB;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .section-title {
       text-align: center;
       font-weight: bold;
+      font-size: 30px;
       color: #333;
-      padding: 10px;
+      padding: 10px 0;
     }
 
     .section-row {
-  display: flex;
-  flex-direction: column; /* Force vertical stacking */
-  gap: 30px;
-  padding: 20px;
-}
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 30px;
+    }
 
+    .mongo-container {
+      background-color:#4db33d ;
+      border-radius: 15px;
+      padding: 20px;
+    }
 
-    .section-container {
-      flex: 0 0 33%;
-      min-width: 400px;
-      background-color: #FFE8CD;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      position: relative;
+    .node-container {
+      background-color: #ec8272;
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .express-container {
+      background-color: #9b59b6;
+      border-radius: 15px;
+      padding: 20px;
     }
 
     .section-box {
-      border: 2px solid #ccc;
       border-radius: 10px;
       padding: 10px;
       height: 100%;
+           
     }
 
     .post-count {
       position: absolute;
       top: 20px;
-      right: 20px;
-      background-color: #222;
+      right: 30px;
+      background-color: #1976d2;
       color: white;
-      padding: 5px 12px;
-      font-size: 13px;
+      padding: 6px 14px;
+      font-size: 14px;
       border-radius: 6px;
     }
 
@@ -63,47 +70,75 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       padding: 10px 0;
+   
     }
 
     .scroll-card {
       flex: 0 0 auto;
-      width: 330px;
-      margin-right: 15px;
+      width: 380px;
+ 
+      height: auto; 
+      margin-right: 20px;
     }
 
-  .card {
-  height: 100%;
-  max-height: 300px;         /* NEW: Fixed height */
-  overflow-y: auto;          /* NEW: Vertical scroll if needed */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  background-color: #FFD6BA;
-  transition: transform 0.2s;
-}
+    .card {
+      height: 100%; 
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-radius: 12px;
+      border: none;
+      padding: 15px;
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #000;
+    }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 4 10px 25px rgb(0, 0, 0);
+
+    }
+
+  
+    .card-mongo {
+      background: #eaea79;
+      color: #333;
+      box-shadow: 0 4px 25px rgba(40, 39, 39, 0.814);
+    }
+
+    .card-node {
+      background: #eaea79;
+      color: #333;
+        box-shadow: 0 4px 25px rgba(24, 24, 24, 0.814);
+    }
+
+    .card-express {
+      background:  #eaea79;
+      color: #333;
+              box-shadow: 0 4px 25px rgba(24, 24, 24, 0.814);
     }
 
     table {
       width: 100%;
-      font-size: 14px;
+      font-size: 15px;
       background: transparent;
+      border-collapse: collapse;
+      height: 100%; 
+        font-size: 20px;
     }
 
     th, td {
       padding: 8px;
-      border: 1px solid #000000;
+      border: 1px solid rgba(0, 0, 0, 0.8);
       vertical-align: top;
+      font-weight: bold;
+      color: inherit; /* inherit from card */
     }
 
     th {
-      background-color: #FFD6BA;
+      width: 30%;
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .btn-custom {
@@ -111,46 +146,71 @@
       padding: 5px 10px;
     }
 
-    /* Responsive Mobile View */
+    /* Description container */
+    .description-scroll {
+      overflow: hidden; /* This keeps the initial content within bounds */
+      padding-right: 4px;
+    }
+
+    .description-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .description-scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+    }
+
+    /* Read More / Read Less styles */
+    .description-text {
+      white-space: pre-wrap;
+      line-height: 1.4em;
+      overflow: hidden; /* Hide overflow initially */
+      /* max-height will be set by JS based on 2 lines */
+    }
+
+    /* Class added by JS when expanded */
+    .description-text.expanded {
+      max-height: none !important; /* Override any max-height set by JS to show full content */
+    }
+
+    .read-more-btn {
+      color: #276aef;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      margin-top: 5px;
+      display: none; /* Hidden by default, shown by JS if needed */
+    }
+
     @media (max-width: 768px) {
       .section-row {
         flex-direction: column;
         padding: 10px;
       }
 
-      .section-container {
-        width: 100%;
-        min-width: 100%;
-        margin-bottom: 30px;
-      }
-
       .scroll-wrapper {
         flex-direction: column;
         overflow-x: unset;
         overflow-y: auto;
-        max-height: 600px;
+        max-height: 800px;
       }
 
       .scroll-card {
         width: 100%;
+        height: auto; /* Ensures it adapts on smaller screens too */
         margin-bottom: 20px;
       }
     }
-    .fas fa-share{
-      color: blue;
-    }
   </style>
 </head>
-<body>
+<body style="background-color: #FFF2EB;">
 
-  <!-- Header Placeholder -->
   <%- include('header', { loggedIn: loggedIn }) %>
 
   <div class="container-fluid">
     <div class="section-row">
 
-      <!-- MongoDB Section -->
-      <div class="section-container">
+      <div class="section-container mongo-container position-relative">
         <h2 class="section-title">🚀 MONGO DB POSTS 🚀</h2>
         <div class="post-count">Total Posts: <%= users.filter(u => u.course === 'Mongodb').length %></div>
         <div class="section-box">
@@ -158,23 +218,35 @@
             <% let mongoIndex = 0; %>
             <% users.filter(u => u.course === 'Mongodb').forEach((user, i) => { %>
               <div class="scroll-card">
-                <div class="card">
+                <div class="card card-mongo">
                   <table>
                     <tr><th>Day</th><td><%= ++mongoIndex %></td></tr>
                     <tr><th>Topic</th><td><%= user.topic %></td></tr>
-                    <tr><th>Description</th><td><%= user.description %></td></tr>
-                    <tr><th>LinkedIn</th>
+                    <tr>
+                      <th>Description</th>
+                      <td>
+                        <div class="description-scroll">
+                          <div class="description-text" id="desc-mongo-<%= i %>"><%= user.description %></div>
+                          <span class="read-more-btn" data-target="desc-mongo-<%= i %>">Read More</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>LinkedIn</th>
                       <td>
                         <a href="<%= user.llink %>" target="_blank" class="btn btn-primary btn-sm btn-custom"><i class="fab fa-linkedin"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
                       </td>
                     </tr>
-                    <tr><th>GitHub</th>
+                    <tr>
+                      <th>GitHub</th>
                       <td>
                         <a href="<%= user.glink %>" target="_blank" class="btn btn-dark btn-sm btn-custom"><i class="fab fa-github"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
                       </td>
                     </tr>
+
+
                   </table>
                 </div>
               </div>
@@ -183,8 +255,7 @@
         </div>
       </div>
 
-      <!-- NodeJS Section -->
-      <div class="section-container">
+      <div class="section-container node-container position-relative">
         <h2 class="section-title">🚀 NODE JS POSTS 🚀</h2>
         <div class="post-count">Total Posts: <%= users.filter(u => u.course === 'Nodejs').length %></div>
         <div class="section-box">
@@ -192,21 +263,31 @@
             <% let nodeIndex = 0; %>
             <% users.filter(u => u.course === 'Nodejs').forEach((user, i) => { %>
               <div class="scroll-card">
-                <div class="card">
+                <div class="card card-node">
                   <table>
                     <tr><th>Day</th><td><%= ++nodeIndex %></td></tr>
                     <tr><th>Topic</th><td><%= user.topic %></td></tr>
-                    <tr><th>Description</th><td><%= user.description %></td></tr>
-                    <tr><th>LinkedIn</th>
+                    <tr>
+                      <th>Description</th>
                       <td>
-                        <a href="<%= user.llink %>" target="_blank" class="btn btn-primary btn-sm btn-custom"><i class="fab fa-linkedin"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
+                        <div class="description-scroll">
+                          <div class="description-text" id="desc-node-<%= i %>"><%= user.description %></div>
+                          <span class="read-more-btn" data-target="desc-node-<%= i %>">Read More</span>
+                        </div>
                       </td>
                     </tr>
-                    <tr><th>GitHub</th>
+                    <tr>
+                      <th>LinkedIn</th>
+                      <td>
+                        <a href="<%= user.llink %>" target="_blank" class="btn btn-primary btn-sm btn-custom"><i class="fab fa-linkedin"></i> Visit</a>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>GitHub</th>
                       <td>
                         <a href="<%= user.glink %>" target="_blank" class="btn btn-dark btn-sm btn-custom"><i class="fab fa-github"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
                       </td>
                     </tr>
                   </table>
@@ -217,8 +298,7 @@
         </div>
       </div>
 
-      <!-- ExpressJS Section -->
-      <div class="section-container">
+      <div class="section-container express-container position-relative">
         <h2 class="section-title">🚀 EXPRESS JS POSTS 🚀</h2>
         <div class="post-count">Total Posts: <%= users.filter(u => u.course === 'Expressjs').length %></div>
         <div class="section-box">
@@ -226,21 +306,31 @@
             <% let expressIndex = 0; %>
             <% users.filter(u => u.course === 'Expressjs').forEach((user, i) => { %>
               <div class="scroll-card">
-                <div class="card">
+                <div class="card card-express">
                   <table>
                     <tr><th>Day</th><td><%= ++expressIndex %></td></tr>
                     <tr><th>Topic</th><td><%= user.topic %></td></tr>
-                    <tr><th>Description</th><td><%= user.description %></td></tr>
-                    <tr><th>LinkedIn</th>
+                    <tr>
+                      <th>Description</th>
                       <td>
-                        <a href="<%= user.llink %>" target="_blank" class="btn btn-primary btn-sm btn-custom"><i class="fab fa-linkedin"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
+                        <div class="description-scroll">
+                          <div class="description-text" id="desc-express-<%= i %>"><%= user.description %></div>
+                          <span class="read-more-btn" data-target="desc-express-<%= i %>">Read More</span>
+                        </div>
                       </td>
                     </tr>
-                    <tr><th>GitHub</th>
+                    <tr>
+                      <th>LinkedIn</th>
+                      <td>
+                        <a href="<%= user.llink %>" target="_blank" class="btn btn-primary btn-sm btn-custom"><i class="fab fa-linkedin"></i> Visit</a>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.llink %>')"><i class="fas fa-share"></i> Share</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>GitHub</th>
                       <td>
                         <a href="<%= user.glink %>" target="_blank" class="btn btn-dark btn-sm btn-custom"><i class="fab fa-github"></i> Visit</a>
-                        <button class="btn btn-light btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
+                        <button class="btn btn-success btn-sm btn-custom" onclick="copyToClipboard('<%= user.glink %>')"><i class="fas fa-share"></i> Share</button>
                       </td>
                     </tr>
                   </table>
@@ -254,16 +344,65 @@
     </div>
   </div>
 
-  <!-- Footer Placeholder -->
   <%- include('footer') %>
 
   <script>
+    // Clipboard copy
     function copyToClipboard(link) {
       navigator.clipboard.writeText(link)
         .then(() => alert("🔗 Link copied to clipboard!"))
         .catch(err => alert("Failed to copy: " + err));
     }
-  </script>
 
+    // Read More / Read Less toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.description-text').forEach(descDiv => {
+        const lineHeight = parseFloat(getComputedStyle(descDiv).lineHeight);
+        const twoLineHeight = lineHeight * 2; // Calculate height for 2 lines
+
+        // Temporarily remove overflow and max-height to get the true scrollHeight
+        descDiv.style.overflow = 'visible';
+        descDiv.style.maxHeight = 'none';
+
+        // Check if the content actually overflows 2 lines
+        if (descDiv.scrollHeight > twoLineHeight) {
+          // If it overflows, set the max-height to 2 lines and show the button
+          descDiv.style.maxHeight = twoLineHeight + 'px';
+          descDiv.style.overflow = 'hidden';
+
+          const readMoreBtn = descDiv.nextElementSibling; // Get the associated button
+          if (readMoreBtn && readMoreBtn.classList.contains('read-more-btn')) {
+            readMoreBtn.style.display = 'inline-block'; // Make the button visible
+          }
+        } else {
+          // If it doesn't overflow, ensure no max-height is set and overflow is not hidden
+          descDiv.style.maxHeight = 'none';
+          descDiv.style.overflow = 'visible';
+        }
+      });
+
+      document.querySelectorAll('.read-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          const descDiv = document.getElementById(targetId);
+
+          if (!descDiv) return;
+
+          if (btn.textContent === 'Read More') {
+            // Expand: show full text
+            descDiv.style.maxHeight = 'none'; // Remove max-height constraint
+            descDiv.style.overflow = 'visible'; // Allow content to be visible
+            btn.textContent = 'Read Less';
+          } else {
+            // Collapse: limit text to 2 lines
+            const lineHeight = parseFloat(getComputedStyle(descDiv).lineHeight);
+            descDiv.style.maxHeight = (lineHeight * 2) + 'px'; // Set back to 2 lines
+            descDiv.style.overflow = 'hidden'; // Hide overflow
+            btn.textContent = 'Read More';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

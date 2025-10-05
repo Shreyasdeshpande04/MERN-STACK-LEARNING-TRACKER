@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Professional Navbar</title>
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -30,10 +29,10 @@
       top: 0;
       z-index: 1000;
       flex-wrap: nowrap;
-       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 
-  /* Text shadow */
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      /* Text shadow */
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     }
 
     .nav-left {
@@ -62,12 +61,54 @@
       border-radius: 5px;
       font-weight: 500;
       transition: background 0.3s ease;
+      position: relative; /* Needed for positioning the pseudo-element */
+      overflow: hidden; /* Hide the pseudo-element initially */
+      display: block; /* Ensure the padding works correctly */
     }
 
+    /* Base style for the colored strip (hidden by default) */
+    #navList li a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0; /* Starts with zero width */
+      height: 100%;
+      background-color: transparent; /* Default */
+      transition: width 0.3s ease; /* Animate the width */
+      z-index: -1; /* Behind the text */
+      border-radius: 5px; /* Match the link's border-radius */
+    }
+
+    /* Different colors for each menu item's strip */
+    #navList li:nth-child(1) a::before { /* Home */
+      background-color: #4CAF50; /* Green */
+    }
+    #navList li:nth-child(2) a::before { /* Post/MERN */
+      background-color: #2196F3; /* Blue */
+    }
+    #navList li:nth-child(3) a::before { /* Table/Contact */
+      background-color: #FFC107; /* Amber */
+    }
+    #navList li:nth-child(4) a::before { /* MERN/Login */
+      background-color: #F44336; /* Red */
+    }
+    #navList li:nth-child(5) a::before { /* Contact/-- */
+      background-color: #9C27B0; /* Purple */
+    }
+    #navList li:nth-child(6) a::before { /* Logout/-- */
+        background-color: #00BCD4; /* Cyan */
+    }
+
+
+    /* Hover effect for the strip */
+    #navList li a:hover::before {
+      width: 100%; /* Expand to full width on hover */
+    }
+
+    /* Keep the text white on hover over the strip */
     #navList li a:hover {
-      background-color: #d46a6a;
-      color: white;
-      height: 100px;
+      color: white; /* Change text color on hover */
     }
 
     .hamburger {
@@ -106,6 +147,11 @@
       #navList li a {
         padding: 12px 20px;
         width: 100%;
+      }
+
+      /* Adjust for mobile menu, the strip should still work */
+      #navList li a::before {
+        border-radius: 0; /* No rounded corners for full width in mobile */
       }
 
       .brand-title {

@@ -1,43 +1,48 @@
 import express from "express";
 import mongoose from "mongoose";
 import session from "express-session";
+import connectMongo from "connect-mongo";
 import { userRouter } from "./Router/user.router.js";
 
+const DB_URI = "mongodb://localhost:27017/project";
+const PORT = 3000;
+
 const app = express();
-const port = 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Set EJS as view engine
+app.set("view engine", "ejs");
+
+
 app.use(
   session({
     secret: "yourSecretKey",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: connectMongo.create({
+      mongoUrl: DB_URI,
+      collectionName: "sessions",
+    }),
+ 
   })
 );
-
-// View engine
-app.set("view engine", "ejs");
 
 // Routes
 app.use(userRouter);
 
-// MongoDB connection and server start
+
 mongoose
-  // .connect("mongodb://localhost:27017/project")
-  .connect("mongodb+srv://deshpandeshreyas434:shreyas123@cluster0.xmhcnwn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(DB_URI)
   .then(() => {
     console.log("✅ MongoDB Connected Successfully");
-    app.listen(port, () => {
-      console.log(`🚀 Server running on http://localhost:${port}`);
-    });
-
-
-
-    
+    app.listen(PORT, () =>
+      console.log(`🚀 Server running at http://localhost:${PORT}`)
+    );
   })
   .catch((err) => {
     console.error("❌ MongoDB Connection Error:", err.message);
+    process.exit(1);
   });

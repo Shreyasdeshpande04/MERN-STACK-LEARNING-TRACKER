@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "6873d97a56406edac5cfd211"
+  },
+  "course": "Nodejs",
+  "topic": "Introduction, Features, Engine, npm",
+  "description": "Studied about intro, features, V8 JS Engine and NPM",
+  "llink": "https://www.linkedin.com/posts/activity-7340774698483445760-pErH?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6873da3e56406edac5cfd215"
+  },
+  "course": "Nodejs",
+  "topic": "DNS, Client- Server Request and Modules",
+  "description": "Studied about DNS, Client- Server Request, Lifecycle and Modules ",
+  "llink": "https://www.linkedin.com/posts/activity-7343653884814364673-myoZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6873dbd256406edac5cfd229"
+  },
+  "course": "Nodejs",
+  "topic": "Modules, require() and Server Routing",
+  "description": "Studied about Modules, require() and Server Routing",
+  "llink": "https://www.linkedin.com/posts/activity-7343665059044147200--uCF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "687517e4a4faaff3f79686de"
+  },
+  "course": "Mongodb",
+  "topic": "Introduction, Features and Advantages",
+  "description": "Studied about what is mongodb, its powerful features and advantages",
+  "llink": "https://www.linkedin.com/posts/activity-7333886828137074688-pv1L?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68751869a4faaff3f79686e1"
+  },
+  "course": "Mongodb",
+  "topic": "Data types and Operators",
+  "description": "Studied about data types- String, Number, Boolean, Date, Array, Object and Operators- Comparison and Logical",
+  "llink": "https://www.linkedin.com/posts/activity-7334252512566235137-ReNx?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68751903a4faaff3f79686e5"
+  },
+  "course": "Mongodb",
+  "topic": "Cursor methods and Element operators",
+  "description": "Studied about Cursor methods-count, limit, skip, sort and Element operators- exists, skip, type",
+  "llink": "https://www.linkedin.com/posts/activity-7335350801143353346-w-a1?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68751acaa4faaff3f79686e9"
+  },
+  "course": "Expressjs",
+  "topic": "Intro, Need, Installation, Middleware and Sending responses",
+  "description": "Studied about what is express js, its need , how to install, what is middleware, and how to send responses",
+  "llink": "https://www.linkedin.com/posts/activity-7344670741662965762-QmcS?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68751b23a4faaff3f79686ec"
+  },
+  "course": "Expressjs",
+  "topic": "Routing, HTTP methods and Postman",
+  "description": "Studied about Routing , HTTP Methods- GET, POST, PUT, DELETE, and Postman",
+  "llink": "https://www.linkedin.com/posts/activity-7345008626467524608-FkOi?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68751b9da4faaff3f79686ef"
+  },
+  "course": "Expressjs",
+  "topic": "Dynamic URL Building and Static File Handling",
+  "description": "studied about Dynamic URL Building - params and Static File Handling",
+  "llink": "https://www.linkedin.com/posts/activity-7345337137136865280-K-dZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADzXvckBs3sLO_zBaHpJCwuWf4n6mccxaaY",
+  "glink": "abc",
+  "__v": 0
+}]
