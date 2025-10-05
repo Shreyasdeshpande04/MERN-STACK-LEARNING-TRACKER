@@ -13,7 +13,7 @@ import {
   editController,
   updateUserController
 
-} from "../controller/homeController.js";
+} from "../controller/homeController.js"
 
 import {
   getLogin,
