@@ -19,7 +19,7 @@ import {
   getLogin,
   postLogin,
   logoutUser
-} from "../Controller/authController.js";
+} from "../controller/authController.js";
 
 const userRouter = express.Router();
 
